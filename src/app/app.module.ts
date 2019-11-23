@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListaPlanoComponent } from './lista-plano/lista-plano.component';
 import { NovoPlanoComponent } from './novo-plano/novo-plano.component';
 
+import { HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { NovoPlanoComponent } from './novo-plano/novo-plano.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
