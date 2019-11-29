@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Plano } from '../plano';
+import { PlanoAPIService } from '../service/plano-api.service';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'has-lista-plano',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaPlanoComponent implements OnInit {
 
-  constructor() { }
+  planos : Plano[];
+
+  constructor(private service: PlanoAPIService) { }
 
   ngOnInit() {
-  }
+    this.service
+      .getPlanos()
+      .subscribe((data: Plano[]) => this.planos = data,
+                error => console.log(error));
+    }
 
 }
